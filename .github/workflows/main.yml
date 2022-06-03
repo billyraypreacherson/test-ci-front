@@ -13,9 +13,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 14
-      - name: Instalação de dependências 
+      #- name: Instalação de dependências 
       #  run: npm install
-      - name: Teste
+      #- name: Teste
       #  run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
         
   build:

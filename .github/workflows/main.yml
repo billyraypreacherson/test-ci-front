@@ -14,9 +14,9 @@ jobs:
         with:
           node-version: 14
       - name: Instalação de dependências 
-        run: npm install
+      #  run: npm install
       - name: Teste
-        run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      #  run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
         
   build:
     runs-on: ubuntu-latest
@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: app-dir
-          path: dist/
+          path: dist1
 
   deploy:
     needs: [test, build]

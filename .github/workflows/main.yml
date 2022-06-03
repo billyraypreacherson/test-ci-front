@@ -30,11 +30,11 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build --prod
-      #- name: Upload do app
-      #  uses: actions/upload-artifact@v3
-      #  with:
-      #    name: app-dir
-      #    path: dist/
+      - name: Upload do app
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-dir
+          path: dist/
 
   deploy:
     needs: [test, build]
@@ -42,17 +42,17 @@ jobs:
     name: Deploy Heroku
     steps:
       - uses: actions/checkout@v3
-      #- name: Download do app
-      #  uses: actions/download-artifact@v3
-      #  with:
-      #    name: app-dir
-      #    path: dist/
-      #- name: Cópia do arquivo static.json
-      #  run: cp static.json dist/sgcmapp/
+      - name: Download do app
+        uses: actions/download-artifact@v3
+        with:
+          name: app-dir
+          path: dist/
+      - name: Cópia do arquivo static.json
+        run: cp static.json dist/sgcmapp/
       - name: Deploy
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: 'sgcmappteste'
           heroku_email: 'danielnsilva@gmail.com'
-          #appdir: 'dist/'
+          appdir: 'dist/'

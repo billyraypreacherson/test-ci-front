@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,7 +26,6 @@ import { UnidadeFormComponent } from './components/unidade-form/unidade-form.com
 import { ProfissionalFormComponent } from './components/profissional-form/profissional-form.component';
 import { PacienteFormComponent } from './components/paciente-form/paciente-form.component';
 import { EspecialidadeFormComponent } from './components/especialidade-form/especialidade-form.component';
-import { RouterTestingModule } from '@angular/router/testing';
 
 @NgModule({
   declarations: [
@@ -56,9 +54,7 @@ import { RouterTestingModule } from '@angular/router/testing';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    HttpClientTestingModule,
-    RouterTestingModule
+    HttpClientModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErroInterceptor, multi: true },

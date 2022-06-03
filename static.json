@@ -1,5 +1,5 @@
 {
-  "root": "dist/sgcmapp/",
+  "root": "./",
   "routes": {
     "/**": "index.html"
   }

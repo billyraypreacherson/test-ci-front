@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: app-dir
-          path: dist
+          path: dist/
 
   deploy:
     needs: [test, build]
@@ -46,12 +46,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: app-dir
+          path: dist/
       - run: ls
       - run: pwd
-      #- name: Deploy
-      #  uses: akhileshns/heroku-deploy@v3.12.12
-      #  with:
-      #    heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-      #    heroku_app_name: 'sgcmappteste'
-      #    heroku_email: 'danielnsilva@gmail.com'
-      #    appdir: 'dist'
+      - name: Deploy
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: 'sgcmappteste'
+          heroku_email: 'danielnsilva@gmail.com'
+          appdir: 'dist/sgcmapp'

@@ -55,4 +55,4 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: 'sgcmappteste'
           heroku_email: 'danielnsilva@gmail.com'
-          appdir: 'dist/sgcmapp'
+          appdir: 'dist/'

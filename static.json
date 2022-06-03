@@ -1,6 +1,3 @@
 {
-  "root": "./",
-  "routes": {
-    "/**": "index.html"
-  }
+  "root": "./"
 }

@@ -7,6 +7,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    name: Testes
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -19,6 +20,7 @@ jobs:
         
   build:
     runs-on: ubuntu-latest
+    name: Build
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -28,4 +30,21 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: app-dir
+          path: dist/
+
+#  deploy:
+#    needs: [test, build]
+#    runs-on: ubuntu-latest
+#    name: Deploy Heroku
+#    steps:
+#      - uses: actions/checkout@v3
+#      - name: Deploy
+#        uses: akhileshns/heroku-deploy@v3.12.12
+#        with:
+#          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+#          heroku_app_name: 'sgcmapi'
+#          heroku_email: 'danielnsilva@gmail.com'
     

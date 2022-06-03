@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: app-dir
-          path: dist1
+          path: dist
 
   deploy:
     needs: [test, build]
@@ -47,6 +47,7 @@ jobs:
         with:
           name: app-dir
       - run: ls
+      - run: pwd
       #- name: Deploy
       #  uses: akhileshns/heroku-deploy@v3.12.12
       #  with:

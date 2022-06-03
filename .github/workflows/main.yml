@@ -47,8 +47,8 @@ jobs:
         with:
           name: app-dir
           path: dist/
-      - run: ls
-      - run: pwd
+      - name: Cópia do arquivo static.json
+        run: cp static.json dist/sgcmapp/
       - name: Deploy
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
